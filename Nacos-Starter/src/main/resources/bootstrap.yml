@@ -1,0 +1,29 @@
+server:
+  port: 8093
+
+spring:
+  application:
+    name: after-sale
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        prefix: after-sale
+        # 配置文件的格式
+        file-extension: yaml
+        # Custom Namespaces
+        namespace: 0515147b-61a0-4dcd-8b01-c729eb215e2f
+        server-addr: 10.1.17.179:38848,10.1.17.180:38848,10.1.17.182:38848
+        # 配置用户组
+        group: dev
+          # DataId By default, the `spring.application.name` configuration
+          #    name: -common-db
+          # encode: UTF-8
+          #        extension-configs:
+          #          - dataId: other-naconfigs1.yaml
+          #            group: dev
+          #            refresh: true
+          #          - dataId: other-naconfigs2.yaml
+          #            group: dev
+        #            refresh: true
