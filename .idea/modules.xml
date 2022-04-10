@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Dev_Utils/Dev_Utils.iml" filepath="$PROJECT_DIR$/Dev_Utils/Dev_Utils.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Kafka-Starter/Kafka-Starter.iml" filepath="$PROJECT_DIR$/Kafka-Starter/Kafka-Starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Logback-Starter/Logback-Starter.iml" filepath="$PROJECT_DIR$/Logback-Starter/Logback-Starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MybatisPlus_Starter/MybatisPlus_Starter.iml" filepath="$PROJECT_DIR$/MybatisPlus_Starter/MybatisPlus_Starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Nacos-Starter/Nacos-Starter.iml" filepath="$PROJECT_DIR$/Nacos-Starter/Nacos-Starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Netty_Starter/Netty_Starter.iml" filepath="$PROJECT_DIR$/Netty_Starter/Netty_Starter.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo.iml" filepath="$PROJECT_DIR$/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rmi_rpc/rmi_rpc.iml" filepath="$PROJECT_DIR$/rmi_rpc/rmi_rpc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rmi_rpc/rmi_rpc_api/rmi_rpc_api.iml" filepath="$PROJECT_DIR$/rmi_rpc/rmi_rpc_api/rmi_rpc_api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rmi_rpc/rmi_rpc_client/rmi_rpc_client.iml" filepath="$PROJECT_DIR$/rmi_rpc/rmi_rpc_client/rmi_rpc_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rmi_rpc/rmi_rpc_server/rmi_rpc_server.iml" filepath="$PROJECT_DIR$/rmi_rpc/rmi_rpc_server/rmi_rpc_server.iml" />
+    </modules>
+  </component>
+</project>

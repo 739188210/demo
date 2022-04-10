@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Dev_Utils/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Dev_Utils/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Kafka-Starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Kafka-Starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Logback-Starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Logback-Starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MybatisPlus_Starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/MybatisPlus_Starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Nacos-Starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Nacos-Starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Netty_Starter/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Netty_Starter/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rmi_rpc/rmi_rpc_api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rmi_rpc/rmi_rpc_api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rmi_rpc/rmi_rpc_client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rmi_rpc/rmi_rpc_client/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rmi_rpc/rmi_rpc_server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/rmi_rpc/rmi_rpc_server/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
