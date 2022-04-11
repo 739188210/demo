@@ -2,32 +2,33 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="Logback-Starter" />
-        <module name="Netty_Starter" />
-        <module name="MybatisPlus_Starter" />
-        <module name="rmi_rpc_server" />
-        <module name="Nacos-Starter" />
         <module name="rmi_rpc_client" />
-        <module name="Dev_Utils" />
         <module name="Kafka-Starter" />
+        <module name="Dev_Utils" />
+        <module name="Netty_Starter" />
+        <module name="Logback-Starter" />
+        <module name="rmi_rpc_server" />
+        <module name="MybatisPlus_Starter" />
+        <module name="Nacos-Starter" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="demo" target="1.8" />
-      <module name="Dev_Utils" target="1.8" />
-      <module name="Kafka-Starter" target="1.8" />
-      <module name="Logback-Starter" target="1.8" />
-      <module name="MybatisPlus_Starter" target="1.8" />
-      <module name="Nacos-Starter" target="1.8" />
-      <module name="Netty_Starter" target="1.8" />
-      <module name="rmi_rpc" target="1.8" />
-      <module name="rmi_rpc_api" target="1.8" />
-      <module name="rmi_rpc_client" target="1.8" />
-      <module name="rmi_rpc_server" target="1.8" />
+      <module name="Dev_Utils" target="8" />
+      <module name="Kafka-Starter" target="8" />
+      <module name="Logback-Starter" target="8" />
+      <module name="MybatisPlus_Starter" target="8" />
+      <module name="Nacos-Starter" target="8" />
+      <module name="Netty_Starter" target="8" />
+      <module name="rmi_rpc" target="8" />
+      <module name="rmi_rpc_api" target="8" />
+      <module name="rmi_rpc_client" target="8" />
+      <module name="rmi_rpc_server" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>

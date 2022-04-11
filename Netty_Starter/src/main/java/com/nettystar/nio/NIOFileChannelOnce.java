@@ -2,6 +2,7 @@ package com.nettystar.nio;
 
 import java.io.*;
 import java.nio.ByteBuffer;
+import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
 
@@ -15,7 +16,9 @@ public class NIOFileChannelOnce {
 //        writeNIOFileChannel();
 //        readNIOFileChannel();
 //        readToWriteAnotherFile();
-        writeFileWithoutBuffer();
+//        writeFileWithoutBuffer();
+
+        MappedByteBufferTest();
     }
 
 
@@ -130,6 +133,9 @@ public class NIOFileChannelOnce {
         }
     }
 
+    /**
+     * use Channel.transferFrom() to copy a file
+     */
     public static void writeFileWithoutBuffer() {
         FileInputStream fileInputStream = null;
         FileOutputStream fileOutputStream = null;
@@ -158,6 +164,32 @@ public class NIOFileChannelOnce {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            }
+        }
+    }
+
+    public static void MappedByteBufferTest() {
+        RandomAccessFile fileInputStream = null;
+        String filePath = "E://javaOutPut/filechannel01.txt";
+        try {
+            fileInputStream = new RandomAccessFile(filePath, "rw");
+            FileChannel inputChannel = fileInputStream.getChannel();
+            System.out.println(inputChannel.isOpen());
+
+            MappedByteBuffer map = inputChannel.map(FileChannel.MapMode.READ_WRITE, 2, 5);
+
+            System.out.println(inputChannel.size());
+            map.put(0,  (byte) '6');
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (fileInputStream != null) {
+                    fileInputStream.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         }
     }
