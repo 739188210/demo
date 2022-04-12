@@ -9,7 +9,9 @@ import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
 import java.nio.channels.Selector;
 import java.nio.channels.SocketChannel;
+import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
+import java.util.Scanner;
 
 /**
  * @author: miao
@@ -39,8 +41,13 @@ public class GroupChatClient {
 
     }
 
-    public void sendInfo() {
-      //  socketChannel.write(ByteBuffer.wrap());
+    public void sendInfo(String info) {
+        try {
+            socketChannel.write(ByteBuffer.wrap(info.getBytes(StandardCharsets.UTF_8)));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public void readInfo() {
@@ -66,6 +73,25 @@ public class GroupChatClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args) {
+        GroupChatClient client = new GroupChatClient();
+
+        new Thread(() -> {
+            while (true) {
+                client.readInfo();
+
+            }
+        }).start();
+
+        Scanner scanner = new Scanner(System.in);
+
+        while (scanner.hasNextLine()) {
+            String line = scanner.nextLine();
+            client.sendInfo(line);
+        }
+
     }
 
 }

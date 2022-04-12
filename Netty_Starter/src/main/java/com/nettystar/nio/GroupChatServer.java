@@ -34,7 +34,7 @@ public class GroupChatServer {
             selector = Selector.open();
             listenChannel = ServerSocketChannel.open();
 
-            listenChannel.socket().bind(new InetSocketAddress(6666));
+            listenChannel.socket().bind(new InetSocketAddress(PORT));
             // 设置非阻塞模式
             listenChannel.configureBlocking(false);
             // 将该channel 注册到selector
@@ -46,7 +46,7 @@ public class GroupChatServer {
     }
 
     public void listen() {
-
+        logger.info("selector is waitting...");
         try {
             while (true) {
                 int count = selector.select(2000);
@@ -74,7 +74,7 @@ public class GroupChatServer {
                     }
 
                 } else {
-                    logger.info("selector is waitting...");
+//                    logger.info("selector is waitting...");
                 }
             }
 
@@ -136,5 +136,11 @@ public class GroupChatServer {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public static void main(String[] args) {
+        GroupChatServer server = new GroupChatServer();
+        server.listen();
     }
 }
