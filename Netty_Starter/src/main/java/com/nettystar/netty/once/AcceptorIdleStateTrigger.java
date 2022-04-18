@@ -8,6 +8,10 @@ import io.netty.util.CharsetUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.concurrent.TimeUnit;
+
 /**
  *
  * @author: miao
@@ -25,10 +29,37 @@ public class AcceptorIdleStateTrigger extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        ctx.channel().eventLoop().scheduleAtFixedRate(() -> {
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            ctx.writeAndFlush(Unpooled.copiedBuffer("channelRead has been third~" + (LocalDateTime.now().toString()) + "------Thread: " + Thread.currentThread().getId(), CharsetUtil.UTF_8));
 
+        }, 5000, 10 * 1000, TimeUnit.MILLISECONDS);
         ByteBuf byteBuf = (ByteBuf) msg;
         logger.info("客户端发送消息： {}", byteBuf.toString(CharsetUtil.UTF_8));
         logger.info("客户端地址： {}", ctx.channel().remoteAddress());
+
+        ctx.channel().eventLoop().execute(() -> {
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            ctx.writeAndFlush(Unpooled.copiedBuffer("channelRead has been~" + (LocalDateTime.now().toString()) + "------Thread: " + Thread.currentThread().getId(), CharsetUtil.UTF_8));
+        });
+
+        ctx.channel().eventLoop().execute(() -> {
+            try {
+                Thread.sleep(10000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            ctx.writeAndFlush(Unpooled.copiedBuffer("channelRead has been twice~" + (LocalDateTime.now().toString()) + "------Thread: " + Thread.currentThread().getId(), CharsetUtil.UTF_8));
+        });
+
 
     }
 
