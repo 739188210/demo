@@ -135,6 +135,7 @@ public class KafkaFir {
 
     }
 
+
     public static void timeUtils() {
         SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
         String dateStr = sf.format(new Date());
