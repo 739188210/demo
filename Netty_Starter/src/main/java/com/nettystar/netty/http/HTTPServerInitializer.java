@@ -17,5 +17,7 @@ public class HTTPServerInitializer extends ChannelInitializer<SocketChannel>{
         ChannelPipeline pipeline = ch.pipeline();
         // 加入一个netty 提供的httpServerCodec 编-解码器
         pipeline.addLast("MyHttpServerCodec", new HttpServerCodec());
+
+        pipeline.addLast("MyHTTPServerHandler", new HTTPServerHandler());
     }
 }

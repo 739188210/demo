@@ -25,13 +25,13 @@ import java.util.concurrent.TimeUnit;
 
 public class HttpServer {
     private static final Logger logger = LoggerFactory.getLogger(HttpServer.class);
-    private static final int port = 6666;
+    private static final int port = 9000;
 
     public static void main(String[] args) {
-
+        runServer();
     }
 
-    public void runServer() {
+    public static void runServer() {
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
         // 创建服务器端的启动对象，配置参数
@@ -50,17 +50,7 @@ public class HttpServer {
                     .option(ChannelOption.SO_BACKLOG, 128)
                     //
                     .childOption(ChannelOption.SO_KEEPALIVE, true)
-                    .childHandler(new ChannelInitializer<SocketChannel>() {
-                        @Override
-                        protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline()
-                                    .addLast(new IdleStateHandler(5, 0, 0, TimeUnit.SECONDS))
-//                                    .addLast("decoder", new StringDecoder())
-//                                    .addLast("encoder", new StringEncoder())
-                                    .addLast(new AcceptorIdleStateTrigger())
-                            ;
-                        }
-                    });
+                    .childHandler(new HTTPServerInitializer());
             logger.info("Server start listen at " + port);
             // 绑定端口并同步 启动服务器
             channelFuture = bootstrap.bind(port).sync();
