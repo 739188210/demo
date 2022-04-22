@@ -13,4 +13,14 @@ public class GroupChatClientHandler extends SimpleChannelInboundHandler<String> 
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
         System.out.println(msg.trim());
     }
+
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) {
+        ctx.channel();
+    }
+
+    @Override
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
+        cause.printStackTrace();
+    }
 }

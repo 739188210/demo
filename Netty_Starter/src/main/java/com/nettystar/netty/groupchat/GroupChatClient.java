@@ -49,14 +49,14 @@ public class GroupChatClient {
             ChannelFuture channelFuture = bootstrap.connect("127.0.0.1", port).sync();
             Channel channel = channelFuture.channel();
             logger.info("------- {} ---------", channel.remoteAddress());
-
-            Scanner scanner = new Scanner(System.in);
-            while (scanner.hasNextLine()) {
-                String msg = scanner.nextLine();
-                channel.writeAndFlush(msg + "\n");
-            }
+            channel.closeFuture().sync();
+//            Scanner scanner = new Scanner(System.in);
+//            while (scanner.hasNextLine()) {
+//                String msg = scanner.nextLine();
+//                channel.writeAndFlush(msg + "\n");
+//            }
         }catch (Exception e) {
-
+            e.printStackTrace();
         } finally {
             loopGroup.shutdownGracefully();
         }
