@@ -1,24 +1,25 @@
 package com.nettystar.netty.dubborpc.server;
 
-import com.nettystar.netty.once.AcceptorIdleStateTrigger;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.channel.*;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelPipeline;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.ServerSocketChannel;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
-import io.netty.handler.logging.LogLevel;
-import io.netty.handler.logging.LoggingHandler;
-import io.netty.handler.timeout.IdleStateHandler;
-import jdk.nashorn.internal.ir.CallNode;
-
-import java.util.concurrent.TimeUnit;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class NettyServer {
+    private static final Logger LOGGER = LoggerFactory.getLogger(NettyServer.class);
 
-    public static void startServer(String host, String port) {
+    public static void startServer(String host, int port) {
+        startServer0(host, port);
+    }
+
+    public static void startServer0(String host, int port) {
         NioEventLoopGroup bossGroup = new NioEventLoopGroup(1);
         NioEventLoopGroup workerGroup = new NioEventLoopGroup(8);
 
@@ -32,10 +33,11 @@ public class NettyServer {
                             ChannelPipeline pipeline = socketChannel.pipeline();
                             pipeline.addLast(new StringDecoder());
                             pipeline.addLast(new StringEncoder());
-                            pipeline.addLast(null);
+                            pipeline.addLast(new Serverhandler());
                         }
                     });
-            ChannelFuture channelFuture = serverBootstrap.bind().sync();
+            LOGGER.info("server has been started");
+            ChannelFuture channelFuture = serverBootstrap.bind(host, port).sync();
             channelFuture.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
